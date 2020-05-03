@@ -12,7 +12,7 @@ function App() {
       <Button disabled>disabled</Button>
       <Button btnType={ButtonTypes.Link} href="https://www.baidu.com">link</Button>
       <br />
-      <Menu defaultIndex={0} mode="horizontal">
+      <Menu defaultIndex={0} mode="vertical">
         <MenuItem index={0}>
           cool link
         </MenuItem>
