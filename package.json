@@ -44,7 +44,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test:nowwatch && yarn lint"
+      "pre-commit": "yarn test:nowatch && yarn lint"
     }
   },
   "eslintConfig": {
