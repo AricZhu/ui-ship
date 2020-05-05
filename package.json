@@ -1,6 +1,6 @@
 {
   "name": "ui-ship",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "author": "aric.zhu",
   "main": "dist/index.js",
@@ -31,14 +31,21 @@
   "scripts": {
     "start": "react-scripts start",
     "clean": "rimraf ./dist",
+    "lint": "eslint --ext js,ts,tsx src --max-warnings 5",
     "build": "yarn clean && yarn build-ts && yarn build-css",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "test": "react-scripts test",
+    "test:nowatch": "cross-env CI=true react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "prepublish": "yarn build"
+    "prepublish": "yarn test:nowatch && yarn lint && yarn build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test:nowwatch && yarn lint"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -70,6 +77,8 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "cross-env": "^7.0.2",
+    "husky": "^4.2.5",
     "node-sass": "^4.14.0",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
