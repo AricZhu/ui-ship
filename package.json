@@ -40,7 +40,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "prepublish": "yarn test:nowatch && yarn lint && yarn build"
+    "prepublishOnly": "yarn test:nowatch && yarn lint && yarn build"
   },
   "husky": {
     "hooks": {
